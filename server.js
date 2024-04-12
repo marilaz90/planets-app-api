@@ -11,7 +11,7 @@ app.use(cors());
 
 app.get("/api/planets", (_req, res) => {
   try {
-    res.json(planets);
+    res.json(planets.map((planet) => ({ id: planet.id, name: planet.name })));
   } catch (err) {
     res.status(500).send(err);
   }
